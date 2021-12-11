@@ -48,6 +48,13 @@ char** skip_cmd(char* av[])
 	}
 	return av;
 }
+void builtin_cd()
+{
+	if ( !cmd[1] || cmd[2] )
+		put_err("error: cd: bad arguments");
+	if ( chdir(cmd[1]) != 0 )
+		put_err2("error: cd: cannot change directory to ", cmd[1]);
+}
 int	main(int argc, char* argv[], char* envp[])
 {
 	(void) argc;
@@ -65,7 +72,10 @@ int	main(int argc, char* argv[], char* envp[])
 		}
 		else
 			fd1 = STDOUT_FILENO;
-		fork_cmd();
+		if ( strcmp(cmd[0], "cd") == 0 )
+			builtin_cd();
+		else
+			fork_cmd();
 		if (delim == '|')
 			fd0 = pipe_fds[0];
 		else

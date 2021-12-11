@@ -5,3 +5,4 @@ void put_err(char* s);
 void put_err2(char* s, char* arg);
 void exit_me(char *s);
 void exit_me2(char* s, char* arg);
+void put_err_multi(char** ss);

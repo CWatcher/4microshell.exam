@@ -20,7 +20,17 @@ void	fork_cmd()
 	pid = fork();
 	if ( pid < 0 )
 		exit_me(ERROR_FATAL);
-	if ( pid == 0 )
+	if (pid == 0) {
+		if ( dup2(fd0, STDIN_FILENO) != STDIN_FILENO )
+			exit_me(ERROR_FATAL);
+		if ( dup2(fd0, STDIN_FILENO) != STDIN_FILENO )
+			exit_me(ERROR_FATAL);
+	}
+	if ( fd0 != STDIN_FILENO && close(fd0) != 0 )
+		exit_me(ERROR_FATAL);
+	if ( fd1 != STDOUT_FILENO && close(fd1) != 0 )
+		exit_me(ERROR_FATAL);
+	if (pid == 0)
 		run_cmd();
 }
 char** skip_cmd(char* av[])
@@ -41,8 +51,20 @@ int	main(int argc, char* argv[], char* envp[])
 	ep = envp;
 	for (cmd = ++argv; *argv; cmd = argv ){
 		argv = skip_cmd(argv);
+		if (delim == '|') {
+			if ( pipe(pipe_fds) != 0 )
+				exit_me(ERROR_FATAL);
+			fd1 = pipe_fds[1];
+		}
+		else
+			fd1 = STDOUT_FILENO;
 		fork_cmd();
-		if (delim == ';')
+		if (delim == '|')
+			fd0 = pipe_fds[0];
+		else
+		{
+			fd0 = STDIN_FILENO;
 			waitpid(pid, NULL, 0);
+		}
 	}
 }

@@ -13,8 +13,10 @@ int		pipe_fds[2];
 int		fd0 = STDIN_FILENO;
 int		fd1 = STDOUT_FILENO;
 
-void	run_cmd()
+void	exec_cmd()
 {
+	if (!cmd[0])
+		return;
 	execve(cmd[0], cmd, ep);
 	exit_me2("error: cannot execute ", cmd[0]);
 }
@@ -34,7 +36,7 @@ void	fork_cmd()
 	if ( fd1 != STDOUT_FILENO && close(fd1) != 0 )
 		exit_me(ERROR_FATAL);
 	if (pid == 0)
-		run_cmd();
+		exec_cmd();
 }
 char** skip_cmd(char* av[])
 {
@@ -54,8 +56,6 @@ int	main(int argc, char* argv[], char* envp[])
 	ep = envp;
 	for (cmd = ++argv; *argv; cmd = argv) {
 		argv = skip_cmd(argv);
-		if (!cmd[0])
-			continue;
 		// put_err_multi(cmd);
 		// fprintf(stderr, "delim = %c\n---\n", delim);
 		if (delim == '|') {

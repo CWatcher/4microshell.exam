@@ -32,3 +32,9 @@ void exit_me(char *s)
 	put_err(s);
 	exit(1);
 }
+
+void exit_me2(char* s, char* arg)
+{
+	put_err2(s, arg);
+	exit(1);
+}

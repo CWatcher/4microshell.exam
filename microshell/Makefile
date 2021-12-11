@@ -1,4 +1,4 @@
-aa:	main.c
+aa:	*.c
 	$(CC) -Wall -Wextra -Wpedantic -o $@ $^
 
 fclean:

@@ -1,8 +1,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define ERROR_FATAL "error: fatal"
-
 int	slen(const char* s)
 {
 	int	l = 0;

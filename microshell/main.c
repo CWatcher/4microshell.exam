@@ -1,6 +1,7 @@
 #include <unistd.h>
+#include <sys/wait.h>
 #include <string.h>
-#include "utils.c"
+#include "utils.h"
 
 char**	cmd;
 char**	ep;

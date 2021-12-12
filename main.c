@@ -2,6 +2,7 @@
 
 #include <unistd.h>
 #include <sys/wait.h>
+#include <stdlib.h>
 #include <string.h>
 #include "utils.h"
 
@@ -13,10 +14,12 @@ int		pipe_fds[2];
 int		fd0 = STDIN_FILENO;
 int		fd1 = STDOUT_FILENO;
 
-void	run_cmd()
+void	exec_cmd()
 {
-	execve(cmd[0], cmd, ep);
-	exit_me2("error: cannot execute ", cmd[0]);
+	if (!*cmd)
+		exit(2);
+	execve(*cmd, cmd, ep);
+	exit_me2("error: cannot execute ", *cmd);
 }
 void	fork_cmd()
 {
@@ -34,7 +37,7 @@ void	fork_cmd()
 	if ( fd1 != STDOUT_FILENO && close(fd1) != 0 )
 		exit_me(ERROR_FATAL);
 	if (pid == 0)
-		run_cmd();
+		exec_cmd();
 }
 char** skip_cmd(char* av[])
 {
@@ -61,8 +64,6 @@ int	main(int argc, char* argv[], char* envp[])
 	ep = envp;
 	for (cmd = ++argv; *argv; cmd = argv) {
 		argv = skip_cmd(argv);
-		if (!cmd[0])
-			continue;
 		// put_err_multi(cmd);
 		// fprintf(stderr, "delim = %c\n---\n", delim);
 		if (delim == '|') {
@@ -72,7 +73,7 @@ int	main(int argc, char* argv[], char* envp[])
 		}
 		else
 			fd1 = STDOUT_FILENO;
-		if ( strcmp(cmd[0], "cd") == 0 )
+		if ( *cmd && strcmp(*cmd, "cd") == 0 )
 			builtin_cd();
 		else
 			fork_cmd();

@@ -1,5 +1,8 @@
-aa:	*.c
-	$(CC) -Wall -Wextra -Wpedantic -g -fsanitize=address -o $@ $^
+SRC		= *.c
+CFLAGS	= -Wall -Wextra -Wpedantic -g -fsanitize=address
 
-fclean:
+aa		: $(SRC) Makefile
+	$(CC) $(CFLAGS) -o $@ $(SRC)
+
+fclean	:
 	$(RM) aa

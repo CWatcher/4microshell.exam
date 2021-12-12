@@ -2,6 +2,7 @@
 
 #include <unistd.h>
 #include <sys/wait.h>
+#include <stdlib.h>
 #include <string.h>
 #include "utils.h"
 
@@ -16,7 +17,7 @@ int		fd1 = STDOUT_FILENO;
 void	exec_cmd()
 {
 	if (!cmd[0])
-		return;
+		exit(2);
 	execve(cmd[0], cmd, ep);
 	exit_me2("error: cannot execute ", cmd[0]);
 }

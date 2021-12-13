@@ -29,7 +29,7 @@ void	fork_cmd()
 	if (pid == 0) {
 		if ( dup2(fd0, STDIN_FILENO) != STDIN_FILENO )
 			exit_me(ERROR_FATAL);
-		if ( dup2(fd0, STDIN_FILENO) != STDIN_FILENO )
+		if ( dup2(fd1, STDOUT_FILENO) != STDOUT_FILENO )
 			exit_me(ERROR_FATAL);
 	}
 	if ( fd0 != STDIN_FILENO && close(fd0) != 0 )

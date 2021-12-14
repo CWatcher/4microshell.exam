@@ -1,0 +1,80 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+ox-v6.msk.21-school.ru
+Darwin 18.7.0 x86_64
+$> date
+Sat Dec 11 14:08:20 MSK 2021
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/c++/4.2.1
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple clang version 11.0.0 (clang-1100.0.33.17)
+Target: x86_64-apple-darwin18.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: git@vogsphere.msk.21-school.ru:exam-2021-12-11/cwatcher_exam-rank-04_exam_12h07m54s.git
+
+= Git history ==================================================================
+$> git -C /tmp/tmpozsKtz/user log --pretty='%H - %an, %ad : %s'
+625b84a301d77a3c86db0efcbf98bb67d05fbf91 - Exam 42, Sat Dec 11 13:56:40 2021 +0300 : [clean]
+47a87c818a8aa37b43ecfbf869630bd8beb6a0e5 - Exam 42, Sat Dec 11 13:55:48 2021 +0300 : t.sh += subject cases
+da0af03947321c4fab17af4c7430a20658a642f4 - Exam 42, Sat Dec 11 13:53:06 2021 +0300 : + utils.h
+78a697d626d32f5574fae057c6d4ec915c491c9b - Exam 42, Sat Dec 11 13:48:31 2021 +0300 : + "|"
+7bbbd0db5c9ae19a86025b1b61911293d02d3929 - Exam 42, Sat Dec 11 13:42:30 2021 +0300 : [undone] + "|"
+57d1e361f7f462585a65fd6e5f8931def960776b - Exam 42, Sat Dec 11 13:42:30 2021 +0300 : [undone] + "|"
+0af80e0a569389138bdf11fbb6a1403e73f8c283 - Exam 42, Sat Dec 11 13:24:25 2021 +0300 : wait only after ";"
+674c6aaf136f24cdbcdcfa17d55589d05f4689b6 - Exam 42, Sat Dec 11 13:14:51 2021 +0300 : +;
+936fb8d1a3f90fbde30acd7a1b9efa31a4d209ed - Exam 42, Sat Dec 11 12:51:00 2021 +0300 : +fork_cmd()
+6dae53b3a368ba1b16a00427dc7a38c6af1e926b - Exam 42, Sat Dec 11 12:31:41 2021 +0300 : +utils.c
+1b9096230a1e134bb4a7cb4e17ab4d986d43a891 - Exam 42, Sat Dec 11 12:17:51 2021 +0300 : [boilerplate]
+ 
+= Collected files ==========================================
+$> ls -lAR /tmp/tmpozsKtz/user
+total 16
+-rw-r--r--  1 root  wheel     3 Dec 11 14:08 .gitignore
+-rw-r--r--  1 root  wheel  2880 Dec 11 14:08 __GIT_HISTORY
+drwxr-xr-x  5 root  wheel   160 Dec 11 14:08 microshell
+
+/tmp/tmpozsKtz/user/microshell:
+total 24
+-rw-r--r--  1 root  wheel  1287 Dec 11 14:08 main.c
+-rw-r--r--  1 root  wheel   497 Dec 11 14:08 utils.c
+-rw-r--r--  1 root  wheel   177 Dec 11 14:08 utils.h
+ 
+= microshell ===================================================================
+$> gcc -Wextra -Wall -Werror main.c utils.c -o user_exe 
+
+$> gcc -Wextra -Wall -Werror main.c -o ref_exe 
+
+= Test 1 ===================================================
+$> ulimit -n 30; ./g4exvx9tz8wy9agdjf1pqove 
+$> ulimit -n 30; ./g4exvx9tz8wy9agdjf1pqove 
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ulimit -n 30; ./qrldwiustbxg3y6z5foo6c2j /usr/bin/ls ./startcpucofvh ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" /usr/bin/ls ./startcpucofvh
+$> ulimit -n 30; ./qrldwiustbxg3y6z5foo6c2j /usr/bin/ls ./startcpucofvh ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" /usr/bin/ls ./startcpucofvh
+$> diff -U 3 user_output_test2 test2.output | cat -e
+--- user_output_test2	2021-12-11 11:08:35.000000000 +0000$
++++ test2.output	2021-12-11 11:08:35.000000000 +0000$
+@@ -2,7 +2,7 @@$
+ 1uv9voj61$
+ f01stchwyz$
+ f26fxfew2a$
+-error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute 0o824yna7$
++0o824yna7$
+ 1uv9voj61$
+ f01stchwyz$
+ f26fxfew2a$
+
+Diff KO :(
+Grade: 0
+
+= Final grade: 0 ===============================================================

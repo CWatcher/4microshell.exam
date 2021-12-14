@@ -1,9 +1,9 @@
 = Host-specific information ====================================================
 $> hostname; uname -msr
-ox-v6.msk.21-school.ru
+ga-t2.msk.21-school.ru
 Darwin 18.7.0 x86_64
 $> date
-Sat Dec 11 14:08:20 MSK 2021
+Sat Dec 11 14:54:47 MSK 2021
 $> gcc --version
 Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/c++/4.2.1
 Apple clang version 11.0.0 (clang-1100.0.33.17)
@@ -21,8 +21,8 @@ Collecting user files from Vogsphere
 Repository URL: git@vogsphere.msk.21-school.ru:exam-2021-12-11/cwatcher_exam-rank-04_exam_12h07m54s.git
 
 = Git history ==================================================================
-$> git -C /tmp/tmpozsKtz/user log --pretty='%H - %an, %ad : %s'
-625b84a301d77a3c86db0efcbf98bb67d05fbf91 - Exam 42, Sat Dec 11 13:56:40 2021 +0300 : [clean]
+$> git -C /tmp/tmpinJCaH/user log --pretty='%H - %an, %ad : %s'
+f8c4ca2cf9ebc74f1baf98aa82ccd9a5883a6d94 - Exam 42, Sat Dec 11 14:54:22 2021 +0300 : [clean]
 47a87c818a8aa37b43ecfbf869630bd8beb6a0e5 - Exam 42, Sat Dec 11 13:55:48 2021 +0300 : t.sh += subject cases
 da0af03947321c4fab17af4c7430a20658a642f4 - Exam 42, Sat Dec 11 13:53:06 2021 +0300 : + utils.h
 78a697d626d32f5574fae057c6d4ec915c491c9b - Exam 42, Sat Dec 11 13:48:31 2021 +0300 : + "|"
@@ -35,17 +35,19 @@ da0af03947321c4fab17af4c7430a20658a642f4 - Exam 42, Sat Dec 11 13:53:06 2021 +03
 1b9096230a1e134bb4a7cb4e17ab4d986d43a891 - Exam 42, Sat Dec 11 12:17:51 2021 +0300 : [boilerplate]
  
 = Collected files ==========================================
-$> ls -lAR /tmp/tmpozsKtz/user
+$> ls -lAR /tmp/tmpinJCaH/user
 total 16
--rw-r--r--  1 root  wheel     3 Dec 11 14:08 .gitignore
--rw-r--r--  1 root  wheel  2880 Dec 11 14:08 __GIT_HISTORY
-drwxr-xr-x  5 root  wheel   160 Dec 11 14:08 microshell
+-rw-r--r--  1 root  wheel     3 Dec 11 14:54 .gitignore
+-rw-r--r--  1 root  wheel  2975 Dec 11 14:54 __GIT_HISTORY
+drwxr-xr-x  7 root  wheel   224 Dec 11 14:54 microshell
 
-/tmp/tmpozsKtz/user/microshell:
-total 24
--rw-r--r--  1 root  wheel  1287 Dec 11 14:08 main.c
--rw-r--r--  1 root  wheel   497 Dec 11 14:08 utils.c
--rw-r--r--  1 root  wheel   177 Dec 11 14:08 utils.h
+/tmp/tmpinJCaH/user/microshell:
+total 40
+-rw-r--r--  1 root  wheel    90 Dec 11 14:54 Makefile
+-rw-r--r--  1 root  wheel  1410 Dec 11 14:54 main.c
+-rwxr-xr-x  1 root  wheel   355 Dec 11 14:54 t.sh
+-rw-r--r--  1 root  wheel   561 Dec 11 14:54 utils.c
+-rw-r--r--  1 root  wheel   208 Dec 11 14:54 utils.h
  
 = microshell ===================================================================
 $> gcc -Wextra -Wall -Werror main.c utils.c -o user_exe 
@@ -53,26 +55,25 @@ $> gcc -Wextra -Wall -Werror main.c utils.c -o user_exe
 $> gcc -Wextra -Wall -Werror main.c -o ref_exe 
 
 = Test 1 ===================================================
-$> ulimit -n 30; ./g4exvx9tz8wy9agdjf1pqove 
-$> ulimit -n 30; ./g4exvx9tz8wy9agdjf1pqove 
+$> ulimit -n 30; ./ne83rynvu3pbh4aynez97mrs 
+$> ulimit -n 30; ./ne83rynvu3pbh4aynez97mrs 
 $> diff -U 3 user_output_test1 test1.output | cat -e
 
 Diff OK :D
 = Test 2 ===================================================
-$> ulimit -n 30; ./qrldwiustbxg3y6z5foo6c2j /usr/bin/ls ./startcpucofvh ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" /usr/bin/ls ./startcpucofvh
-$> ulimit -n 30; ./qrldwiustbxg3y6z5foo6c2j /usr/bin/ls ./startcpucofvh ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" /usr/bin/ls ./startcpucofvh
+$> ulimit -n 30; ./t2dmne4xilgzv0hs5305zgja /usr/bin/ls ./startdjeabq2r ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" /usr/bin/ls ./startdjeabq2r
+$> ulimit -n 30; ./t2dmne4xilgzv0hs5305zgja /usr/bin/ls ./startdjeabq2r ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" /usr/bin/ls ./startdjeabq2r
 $> diff -U 3 user_output_test2 test2.output | cat -e
---- user_output_test2	2021-12-11 11:08:35.000000000 +0000$
-+++ test2.output	2021-12-11 11:08:35.000000000 +0000$
-@@ -2,7 +2,7 @@$
- 1uv9voj61$
- f01stchwyz$
- f26fxfew2a$
--error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute error: cannot execute 0o824yna7$
-+0o824yna7$
- 1uv9voj61$
- f01stchwyz$
- f26fxfew2a$
+
+Diff OK :D
+= Test 3 ===================================================
+$> ulimit -n 30; ./ldqe2twikka3yg235b778x5j cd ./startdjeabq2r
+$> ulimit -n 30; ./ldqe2twikka3yg235b778x5j cd ./startdjeabq2r
+$> diff -U 3 user_output_test3 test3.output | cat -e
+--- user_output_test3	2021-12-11 11:54:54.000000000 +0000$
++++ test3.output	2021-12-11 11:54:54.000000000 +0000$
+@@ -1 +0,0 @@$
+-error: cannot execute cd$
 
 Diff KO :(
 Grade: 0

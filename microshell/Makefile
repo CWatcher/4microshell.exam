@@ -1,5 +1,5 @@
 aa:	*.c
-	$(CC) -Wall -Wextra -Wpedantic -o $@ $^
+	$(CC) -Wall -Wextra -Wpedantic -g -fsanitize=address -o $@ $^
 
 fclean:
-	rm aa
+	$(RM) aa

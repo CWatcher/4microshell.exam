@@ -16,10 +16,10 @@ int		fd1 = STDOUT_FILENO;
 
 void	exec_cmd()
 {
-	if (!cmd[0])
+	if (!*cmd)
 		exit(2);
-	execve(cmd[0], cmd, ep);
-	exit_me2("error: cannot execute ", cmd[0]);
+	execve(*cmd, cmd, ep);
+	exit_me2("error: cannot execute ", *cmd);
 }
 void	fork_cmd()
 {
@@ -73,7 +73,7 @@ int	main(int argc, char* argv[], char* envp[])
 		}
 		else
 			fd1 = STDOUT_FILENO;
-		if ( *cmd && strcmp(cmd[0], "cd") == 0 )
+		if ( *cmd && strcmp(*cmd, "cd") == 0 )
 			builtin_cd();
 		else
 			fork_cmd();

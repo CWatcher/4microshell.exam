@@ -27,6 +27,8 @@ void	fork_cmd()
 	if ( pid < 0 )
 		exit_me(ERROR_FATAL);
 	if (pid == 0) {
+		if ( delim == '|' && close(pipe_fds[0]) != 0 )
+			exit_me(ERROR_FATAL);
 		if ( dup2(fd0, STDIN_FILENO) != STDIN_FILENO )
 			exit_me(ERROR_FATAL);
 		if ( dup2(fd1, STDOUT_FILENO) != STDOUT_FILENO )

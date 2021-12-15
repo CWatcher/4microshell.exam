@@ -13,6 +13,7 @@ tt.sh '/bin/sleep 1 ; /bin/echo 9'
 tt.sh '/bin/ls . | /usr/bin/wc -w'
 tt.sh '/usr/bin/seq 21 | /usr/bin/paste -s -d"*" - | /usr/bin/bc'
 tt.sh '/bin/sleep 1 | /bin/echo 10'
+tt.sh '/usr/bin/yes | /usr/bin/head'
 
 tt.sh 'cd /usr/bin ; /bin/pwd'
 

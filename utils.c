@@ -1,14 +1,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	slen(const char* s)
-{
-	int	l = 0;
-	while (*s++)
-		l++;
-	return l;
-}
-
 void put_err(char* s)
 {
 	while (*s)

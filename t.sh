@@ -8,9 +8,11 @@ tt.sh '/bin/echo 3 ;'
 tt.sh '; /bin/echo 4'
 tt.sh '/bin/echo 5 ; ; /bin/echo 6 ;'
 tt.sh '; /bin/echo 7 ; ; /bin/echo 8 ;'
+tt.sh '/bin/sleep 1 ; /bin/echo 9'
 
 tt.sh '/bin/ls . | /usr/bin/wc -w'
 tt.sh '/usr/bin/seq 21 | /usr/bin/paste -s -d"*" - | /usr/bin/bc'
+tt.sh '/bin/sleep 1 | /bin/echo 10'
 
 tt.sh 'cd /usr/bin ; /bin/pwd'
 

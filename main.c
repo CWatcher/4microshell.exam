@@ -83,6 +83,8 @@ int	main(int argc, char* argv[], char* envp[])
 		{
 			fd0 = STDIN_FILENO;
 			waitpid(pid, NULL, 0);
+			while(wait(NULL) != -1)
+				;
 		}
 	}
 }

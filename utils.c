@@ -15,11 +15,7 @@ void put_err(char* s)
 		write(STDERR_FILENO, s++, 1);
 	write(STDERR_FILENO, "\n", 1);
 }
-void put_err_multi(char** ss)
-{
-	while (*ss)
-		put_err(*ss++);
-}
+
 void put_err2(char* s, char* arg)
 {
 	while (*s)

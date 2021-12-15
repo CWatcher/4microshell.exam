@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stdlib.h>
@@ -66,8 +64,6 @@ int	main(int argc, char* argv[], char* envp[])
 	ep = envp;
 	for (cmd = ++argv; *argv; cmd = argv) {
 		argv = skip_cmd(argv);
-		// put_err_multi(cmd);
-		// fprintf(stderr, "delim = %c\n---\n", delim);
 		if (delim == '|') {
 			if ( pipe(pipe_fds) != 0 )
 				exit_me(ERROR_FATAL);

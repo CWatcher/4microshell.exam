@@ -15,7 +15,8 @@ tt.sh '/usr/bin/seq 21 | /usr/bin/paste -s -d"*" - | /usr/bin/bc'
 tt.sh 'cd /usr/bin ; /bin/pwd'
 
 tt.sh '/bin/ls | /usr/bin/grep aa ; /bin/echo i love my aa'
-tt.sh '/bin/echo WOOT ; /bin/echo NOPE; ; ; ; /bin/echo YEAH'
+t_diff.sh 'echo "WOOT ; /bin/echo NOPE; ; ;\nYEAH"' \
+          './aa /bin/echo WOOT "; /bin/echo NOPE;" "; ;" ";" /bin/echo YEAH'
 
-./aa nothing
-./aa main.c
+t_diff.sh 'echo "error: cannot execute nothing"' './aa nothing  2>&1'
+t_diff.sh 'echo "error: cannot execute main.c"' './aa main.c 2>&1'
